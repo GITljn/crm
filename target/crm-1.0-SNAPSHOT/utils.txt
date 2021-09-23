@@ -1,0 +1,37 @@
+$(".time").datetimepicker({
+    language:  "zh-CN",
+    format: "yyyy-mm-dd hh:ii:ss",
+    minView: "hour",
+    initialDate: new Date(),
+    autoclose: true,
+    todayBtn: true,
+    clearBtn : true,
+    pickerPosition: "bottom-left"
+});
+
+$(".time").datetimepicker({
+    minView: "month",
+    language:  'zh-CN',
+    format: 'yyyy-mm-dd',
+    autoclose: true,
+    todayBtn: true,
+    pickerPosition: "bottom-left"
+});
+
+$.ajax({
+    url: "",
+    type: "",
+    data: {
+
+    },
+    dataType: "json",
+    success: function (data) {
+
+    }
+})
+
+String createTime = DateTimeUtil.getSysTime();
+String createBy = ((User)request.getSession(false).getAttribute("user")).getName();
+
+pageList($("#cluePage").bs_pagination('getOption', 'currentPage'),
+		$("#cluePage").bs_pagination('getOption', 'rowsPerPage'))

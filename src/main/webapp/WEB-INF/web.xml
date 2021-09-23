@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>com.bjpowernode.crm.web.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+<!--    只需要过滤servlet即可，html、jsp内部有编码要求，图片没有中文不用过滤    -->
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    
+    
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>com.bjpowernode.crm.web.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+<!--    do表示后端资源，jsp表示前端资源，其他的资源没必要过滤    -->
+        <url-pattern>*.do</url-pattern>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+
+
+    <listener>
+        <listener-class>com.bjpowernode.crm.web.listener.SysInitListener</listener-class>
+    </listener>
+
+    
+    <servlet>
+        <servlet-name>UserController</servlet-name>
+        <servlet-class>com.bjpowernode.crm.settings.web.controller.UserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserController</servlet-name>
+<!--    模块/功能    -->
+        <url-pattern>/settings/user/login.do</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>DicController</servlet-name>
+        <servlet-class>com.bjpowernode.crm.settings.web.controller.DicController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DicController</servlet-name>
+        <url-pattern>/settings/dic/xxx.do</url-pattern>
+    </servlet-mapping>
+    
+    
+    <servlet>
+        <servlet-name>ActivityController</servlet-name>
+        <servlet-class>com.bjpowernode.crm.workbench.web.controller.ActivityController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ActivityController</servlet-name>
+        <url-pattern>/workbench/activity/getUserList.do</url-pattern>
+        <url-pattern>/workbench/activity/save.do</url-pattern>
+        <url-pattern>/workbench/activity/pageList.do</url-pattern>
+        <url-pattern>/workbench/activity/delete.do</url-pattern>
+        <url-pattern>/workbench/activity/getUserListAndActivity.do</url-pattern>
+        <url-pattern>/workbench/activity/update.do</url-pattern>
+        <url-pattern>/workbench/activity/detail.do</url-pattern>
+        <url-pattern>/workbench/activity/getRemarkList.do</url-pattern>
+        <url-pattern>/workbench/activity/deleteRemark.do</url-pattern>
+        <url-pattern>/workbench/activity/saveRemark.do</url-pattern>
+        <url-pattern>/workbench/activity/updateRemark.do</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ClueController</servlet-name>
+        <servlet-class>com.bjpowernode.crm.workbench.web.controller.ClueController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ClueController</servlet-name>
+        <url-pattern>/workbench/clue/getUserList.do</url-pattern>
+        <url-pattern>/workbench/clue/save.do</url-pattern>
+        <url-pattern>/workbench/clue/pageList.do</url-pattern>
+        <url-pattern>/workbench/clue/getUserListAndClue.do</url-pattern>
+        <url-pattern>/workbench/clue/update.do</url-pattern>
+        <url-pattern>/workbench/clue/delete.do</url-pattern>
+        <url-pattern>/workbench/clue/detail.do</url-pattern>
+        <url-pattern>/workbench/clue/showRemarkList.do</url-pattern>
+        <url-pattern>/workbench/clue/saveRemark.do</url-pattern>
+        <url-pattern>/workbench/clue/deleteRemark.do</url-pattern>
+        <url-pattern>/workbench/clue/updateRemark.do</url-pattern>
+        <url-pattern>/workbench/clue/showActivityList.do</url-pattern>
+        <url-pattern>/workbench/clue/unBind.do</url-pattern>
+        <url-pattern>/workbench/clue/searchActivityList.do</url-pattern>
+        <url-pattern>/workbench/clue/searchActivityListConvert.do</url-pattern>
+        <url-pattern>/workbench/clue/bind.do</url-pattern>
+        <url-pattern>/workbench/clue/convert.do</url-pattern>
+    </servlet-mapping>
+</web-app>
